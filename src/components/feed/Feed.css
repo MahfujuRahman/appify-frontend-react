@@ -1,0 +1,389 @@
+.feed-page-react {
+  min-height: 100vh;
+  font-family: Poppins, sans-serif;
+}
+
+.feed-page-react button,
+.feed-page-react label {
+  font-family: inherit;
+}
+
+.feed-page-react button {
+  cursor: pointer;
+}
+
+.feed-page-react button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.feed-header-react {
+  gap: 18px;
+}
+
+.feed-header-react ._header_nav_link,
+.feed-header-react ._header_nav_profile_link,
+.feed-header-react ._header_nav_link_active {
+  border: 0;
+  background: transparent;
+}
+
+.feed-profile-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feed-profile-button::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -4px;
+}
+
+._header_nav_profile_img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.feed-profile-dropdown {
+  right: 0;
+  left: auto;
+  min-width: 130px;
+  padding: 8px;
+}
+
+.feed-profile-dropdown ._nav_dropdown_link {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.feed-sidebar-search-icon {
+  position: absolute;
+  top: 9px;
+  left: 20px;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #666;
+  border-radius: 50%;
+  color: transparent;
+}
+
+.feed-sidebar-search-icon::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: -5px;
+  width: 8px;
+  height: 1.5px;
+  background: #666;
+  transform: rotate(45deg);
+}
+
+.feed-online-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #0acf83;
+}
+
+.feed-story-row {
+  --bs-gutter-x: 16px;
+}
+
+._feed_inner_profile_story,
+._feed_inner_public_story {
+  min-height: 156px;
+  position: relative;
+  overflow: hidden;
+}
+
+._story_img,
+._profile_story_img,
+._public_story_img {
+  width: 100%;
+  min-height: 156px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+._feed_inner_profile_story_txt,
+._feed_inner_pulic_story_txt {
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+}
+
+._feed_inner_profile_story_para,
+._feed_inner_pulic_story_para {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: center;
+}
+
+._feed_inner_profile_story_btn {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 28px;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #112032;
+  border-radius: 50%;
+  background: var(--color5);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.feed-file-input {
+  display: none;
+}
+
+.feed-tool-button,
+._feed_common label {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.feed-visibility-select {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: var(--color7);
+  font-size: 14px;
+  outline: 0;
+}
+
+.feed-selected-file {
+  display: block;
+  padding: 8px 24px 0;
+  color: var(--color7);
+  font-size: 12px;
+}
+
+.feed-has-text ._feed_textarea_label {
+  opacity: 0;
+}
+
+._feed_inner_text_area_box_form ._textarea {
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+._feed_inner_text_area_box_form ._textarea:focus {
+  transform: translateY(-1px);
+}
+
+.feed-post-image {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+._feed_inner_timeline_reaction_link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+._feed_inner_timeline_total_reacts_para1 button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.feed-liked-by {
+  position: relative;
+  display: inline-block;
+}
+
+.feed-liked-by__button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+}
+
+.feed-liked-by__button:not(:disabled):hover {
+  color: var(--color5);
+  text-decoration: underline;
+}
+
+.feed-liked-by__popover {
+  position: absolute;
+  z-index: 50;
+  left: 0;
+  bottom: calc(100% + 8px);
+  width: max-content;
+  min-width: 190px;
+  max-width: 260px;
+  padding: 12px;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(16, 24, 40, 0.16);
+  color: #101828;
+}
+
+.feed-liked-by__popover strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.feed-liked-by__popover ul {
+  display: grid;
+  gap: 6px;
+  max-height: 180px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+.feed-liked-by__popover li,
+.feed-liked-by__empty {
+  display: block;
+  color: #475467;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.feed-liked-by--compact .feed-liked-by__popover {
+  right: 0;
+  left: auto;
+}
+
+._comment_reply_list button {
+  border: 0;
+  background: transparent;
+  color: var(--color6);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0;
+}
+
+.feed-action-active {
+  color: var(--color5) !important;
+}
+
+.feed-comment-submit {
+  color: var(--color5);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.feed-reply-form {
+  margin: -34px 0 18px;
+}
+
+.feed-comment-children {
+  margin-left: 26px;
+}
+
+.feed-sentinel {
+  height: 1px;
+}
+
+.feed-more {
+  color: var(--color7);
+  font-size: 13px;
+  text-align: center;
+  padding: 10px 0 4px;
+}
+
+.feed-more--end {
+  padding-bottom: 18px;
+}
+
+._dark_wrapper .feed-liked-by__popover {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--bg6);
+  color: var(--bg2);
+}
+
+._dark_wrapper .feed-liked-by__popover li,
+._dark_wrapper .feed-liked-by__empty {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+._dark_wrapper .feed-visibility-select {
+  color: var(--bg2);
+}
+
+._dark_wrapper .feed-visibility-select option {
+  color: #101828;
+}
+
+@media (max-width: 991px) {
+  .feed-desktop-sidebar {
+    display: none;
+  }
+
+  .feed-header-react {
+    flex-wrap: wrap;
+  }
+
+  .feed-header-react ._header_form {
+    order: 3;
+    width: 100%;
+  }
+
+  ._feed_inner_text_area_bottom {
+    height: auto;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+
+  .feed-visibility-select {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  ._feed_inner_profile_story,
+  ._feed_inner_public_story,
+  ._story_img,
+  ._profile_story_img,
+  ._public_story_img {
+    min-height: 122px;
+  }
+
+  ._feed_common {
+    padding: 0 5px;
+  }
+
+  ._feed_inner_text_area_bottom_photo_link {
+    font-size: 0;
+  }
+
+  ._feed_inner_text_area_bottom_photo_iamge {
+    margin-right: 0;
+  }
+
+  .feed-liked-by__popover {
+    max-width: 220px;
+  }
+}
