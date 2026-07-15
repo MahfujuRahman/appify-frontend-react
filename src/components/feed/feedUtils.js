@@ -1,4 +1,4 @@
-export const STORAGE_BASE = 'http://127.0.0.1:8000/storage'
+export const STORAGE_BASE = import.meta.env.VITE_STORAGE_BASE_URL || "http://127.0.0.1:8000/storage"
 
 export function extractData(response) {
   const payload = response?.data
