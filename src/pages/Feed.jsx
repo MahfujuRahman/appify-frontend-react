@@ -99,7 +99,7 @@ export default function Feed({ navigate }) {
   useEffect(() => {
     mountedRef.current = true
     const timer = window.setTimeout(() => {
-      loadPostsPage(1, 'replace').catch(() => {})
+      loadPostsPage(1, 'replace').catch(() => { })
     }, 0)
     return () => {
       mountedRef.current = false
@@ -113,7 +113,7 @@ export default function Feed({ navigate }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || loadingMore || loading) return
-        loadPostsPage(page + 1, 'append').catch(() => {})
+        loadPostsPage(page + 1, 'append').catch(() => { })
       },
       {
         root: null,
@@ -275,22 +275,27 @@ export default function Feed({ navigate }) {
                     {error ? <div className="alert alert-danger mb-3">{error}</div> : null}
                     {loading ? <div className="_feed_inner_area _b_radious6 _padd_t24 _padd_b24 text-center">Loading your feed...</div> : null}
                     {!loading && !posts.length ? <div className="_feed_inner_area _b_radious6 _padd_t24 _padd_b24 text-center">No posts yet. Be the first to share something.</div> : null}
-                    {posts.map((post) => (
-                      <PostCard
-                        key={post.id}
-                        post={post}
-                        currentUser={currentUser}
-                        open={Boolean(openComments[post.id])}
-                        draft={commentDrafts[post.id] || ''}
-                        onToggleLike={handleTogglePostLike}
-                        onToggleComments={(id) => setOpenComments((current) => ({ ...current, [id]: !current[id] }))}
-                        onDraftChange={(id, value) => setCommentDrafts((current) => ({ ...current, [id]: value }))}
-                        onCreateComment={handleCreateComment}
-                        onToggleCommentLike={handleToggleCommentLike}
-                        onReply={handleCreateComment}
-                      />
-                    ))}
-                    <div ref={sentinelRef} className="feed-sentinel" aria-hidden="true" />
+                    {posts.map((post, index) => {
+                      const targetIndex = Math.max(posts.length - 3, 0)
+                      const attachRef = index === targetIndex
+
+                      return (
+                        <div key={post.id} ref={attachRef ? sentinelRef : null}>
+                          <PostCard
+                            post={post}
+                            currentUser={currentUser}
+                            open={Boolean(openComments[post.id])}
+                            draft={commentDrafts[post.id] || ''}
+                            onToggleLike={handleTogglePostLike}
+                            onToggleComments={(id) => setOpenComments((current) => ({ ...current, [id]: !current[id] }))}
+                            onDraftChange={(id, value) => setCommentDrafts((current) => ({ ...current, [id]: value }))}
+                            onCreateComment={handleCreateComment}
+                            onToggleCommentLike={handleToggleCommentLike}
+                            onReply={handleCreateComment}
+                          />
+                        </div>
+                      )
+                    })}
                     {loadingMore ? <div className="feed-more">Loading more posts...</div> : null}
                     {!hasMore && posts.length ? <div className="feed-more feed-more--end">You're all caught up.</div> : null}
                   </div>
